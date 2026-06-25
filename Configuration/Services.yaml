@@ -1,0 +1,21 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Wegewerk\Ai3Core\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Wegewerk\Ai3Core\Api\ZakAiClient:
+    arguments:
+      $baseUrl: 'https://www.zak-ai.com/api/v1/'
+      $httpClient: '@Psr\Http\Client\ClientInterface'
+      $requestFactory: '@Psr\Http\Message\RequestFactoryInterface'
+      $streamFactory: '@Psr\Http\Message\StreamFactoryInterface'
+
+  Wegewerk\Ai3Core\Api\ZakAiAccount:
+    arguments:
+      $client: '@Wegewerk\Ai3Core\Api\ZakAiClient'
+

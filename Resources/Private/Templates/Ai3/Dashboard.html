@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+    <section class="card-container">
+        <f:render partial="DashboardCards/DynamicCard" arguments="{
+            icon: 'ai3-extension',
+            cardname: 'manageZakAi',
+            controller: 'ZakAi',
+            route: 'ai3_zakai',
+            params: {id: pid},
+            status: 'active'
+        }" />
+
+
+        <f:render partial="DashboardCards/DynamicCard" arguments="{
+            icon: 'actions-cog-alt',
+            cardname: 'manageGenerateTasks',
+            controller: 'GenerateTask',
+            route: 'ai3_generatetask',
+            params: {id: pid},
+            status: 'active'
+        }" />
+    </section>
+</f:section>

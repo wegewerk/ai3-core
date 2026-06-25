@@ -1,0 +1,27 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+{namespace be=TYPO3\CMS\Backend\ViewHelpers}
+
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <h1 class="mb-2">
+        <core:icon identifier="ai3-extension" size="medium"/>
+        <f:translate extensionName="ai3" key="tx_ai3.module.zakAiManager.header"/>
+    </h1>
+    <br/>
+    <section class="row">
+        <f:if condition="{envCheck.registrationstatus} == Done">
+            <f:then>
+                <f:render arguments="{_all}" partial="ZakAi/Credits"/>
+            </f:then>
+        </f:if>
+    </section>
+    <section class="row">
+        <f:render arguments="{_all}" partial="ZakAi/Secret"/>
+    </section>
+    <section class="row">
+        <f:render arguments="{_all}" partial="ZakAi/ServiceKey"/>
+    </section>
+</f:section>
+</html>

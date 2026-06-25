@@ -1,0 +1,26 @@
+{
+    "name": "wegewerk/ai3_core",
+    "type": "typo3-cms-extension",
+    "description": "Ai3 Core - Provides shared Classes and Interfaces across related extensions (Ai3-Suite). Handles Zak-Ai API and Registration",
+    "homepage": "https://www.wegewerk.com/",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "keywords": [
+        "TYPO3 CMS"
+    ],
+    "require": {
+        "typo3/cms-core": "^12.4.0 | ^13.4.0 | ^14.0",
+        "ext-intl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wegewerk\\Ai3Core\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ai3_core"
+        }
+    }
+}

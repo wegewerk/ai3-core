@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+
+<div class="card card-size-large {status}">
+    <div class="card-header">
+        <f:if condition="{icon}">
+            <div class="card-icon">
+                <core:icon identifier="{icon}" size="large"/>
+            </div>
+        </f:if>
+        <div class="card-header-body">
+            <h3 class="card-title">{title}<f:translate key="tx_ai3.module.dashboard.card.{cardname}.title" extensionName="ai3_core"/></h3>
+            <f:variable name="subtitle" value="{subtitle}{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.subtitle', extensionName: 'ai3_core')}"/>
+            <f:if condition="{subtitle}">
+                <span class="card-subtitle">
+                    {subtitle}
+                </span>
+            </f:if>
+            <f:variable name="description" value="{description}{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.description', extensionName: 'ai3_core')}"/>
+            <f:if condition="{description}">
+                <div class="card-longdesc">
+                    <p>
+                        {description}
+                    </p>
+                </div>
+            </f:if>
+            <br>
+            <f:if condition="{status} == 'active'">
+                <f:then>
+                    <f:variable name="routeLink">{f:be.uri(route: route)}</f:variable>
+                    <f:if condition="{params}">
+                        <f:variable name="routeLink">{f:be.uri(route: route, parameters: params)}</f:variable>
+                    </f:if>
+                    <a href="{routeLink}" class="btn btn-secondary" title="{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.linklabel', extensionName: 'ai3_core')}">
+                        <f:translate key="tx_ai3.module.dashboard.card.{cardname}.linklabel" extensionName="ai3_core"/>
+                    </a>
+                </f:then>
+                <f:else if="{status} == 'coming-soon'">
+                    <span class="coming-soon">
+                        <f:translate key="tx_ai3.module.dashboard.card.coming-soon" extensionName="ai3_core"/>
+                    </span>
+                </f:else>
+            </f:if>
+        </div>
+    </div>
+</div>
+</html>

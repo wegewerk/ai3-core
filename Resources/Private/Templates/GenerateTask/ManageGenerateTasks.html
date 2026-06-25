@@ -1,0 +1,102 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+{namespace be=TYPO3\CMS\Backend\ViewHelpers}
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+    <h1 class="mb-2">
+        <core:icon identifier="actions-cog-alt" size="medium"/> <f:translate key="tx_ai3.module.manageGenerateTasks.header" extensionName="ai3"/>
+    </h1>
+    <br />
+    <div class="recordlist">
+        <div class="recordlist-heading multi-record-selection-panel">
+            <div class="recordlist-heading-row">
+                <div class="recordlist-heading-title">
+                    <f:translate key="tx_ai3.module.manageGenerateTasks.generateTasksLabel" extensionName="ai3"/> (<f:count subject="{generateTasks}" />)
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="table-fit">
+                <table class="table product-table table-striped recordlist">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.uid" extensionName="ai3"/>
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.status" extensionName="ai3"/>
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.capability" extensionName="ai3"/>
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.llm" extensionName="ai3"/>
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.record" extensionName="ai3"/>
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_ai3.module.manageGenerateTasks.language" extensionName="ai3"/>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <f:if condition="{generateTasks -> f:count()} == 0">
+                        <tr>
+                            <td colspan="6">
+                                <f:translate key="tx_ai3.module.manageGenerateTasks.noRecordsFound" extensionName="ai3"/>
+                            </td>
+                        </tr>
+                     </f:if>
+                    <f:for each="{generateTasks}" as="task">
+                        <tr data-bs-toggle="collapse" data-bs-target="#row{task.uid}-details" class="accordion-toggle" style="cursor: pointer;">
+                            <td>
+                                {task.uid}
+                            </td>
+                            <td>
+                                <f:switch expression="{task.status.name}">
+                                    <f:case value="pending"><span class="badge badge-info">{task.status.value}</span></f:case>
+                                    <f:case value="processing"><span class="badge badge-info">{task.status.value}</span></f:case>
+                                    <f:case value="done"><span class="badge badge-success">{task.status.value}</span></f:case>
+                                    <f:case value="failed"><span class="badge badge-danger">{task.status.value}</span></f:case>
+                                    <f:case value="canceled"><span class="badge">{task.status.value}</span></f:case>
+                                </f:switch>
+                            </td>
+                            <td>
+                                {task.capability.value}
+                            </td>
+                            <td>
+                                {task.aiService.value}<br>
+                                {task.llm}
+                            </td>
+                            <td>
+                                <strong><f:translate key="tx_ai3.module.manageGenerateTasks.table" extensionName="ai3"/>:</strong> {task.recordTable} ({task.recordUid})<br>
+                                <strong><f:translate key="tx_ai3.module.manageGenerateTasks.field" extensionName="ai3"/>:</strong> {task.recordField}<br>
+                            </td>
+                            <td>
+                                {task.recordLanguage}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="p-0">
+                                <div id="row{task.uid}-details" class="collapse">
+                                    <div class="p-3 border-top">
+                                        <strong>Prompt:</strong> {task.prompt}<br>
+                                        <strong>Image:</strong> {task.image}<br>
+                                        <strong>Result:</strong> {task.result}<br>
+                                        <strong>ResultMeta:</strong> {task.resultMeta}<br>
+                                        <strong>Error:</strong> {task.errorMessage}<br>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</f:section>
+</html>

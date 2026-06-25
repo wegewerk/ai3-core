@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" original="EXT:ai3/Resources/Private/Language/locallang.xlf" datatype="plaintext" product-name="ai3" date="2026-06-23T12:03:29+02:00">
+		<header></header>
+		<body>
+			<trans-unit id="tx_ai3.module.actionmenu.dashboard">
+				<source>Dashboard</source>
+				<target>Dashboard</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.llmManager.manage.service">
+				<source>Service</source>
+				<target>AI Service</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.llmManager.manage.default">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageZakAi.title">
+				<source>Manage Zak_ai</source>
+				<target>Zak_ai verwalten</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageZakAi.description">
+				<source>Manage the Zak_ai implementation.</source>
+				<target>Verwalten Sie die Zak_ai-Implementierung.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageZakAi.linklabel">
+				<source>Manage Zak_ai</source>
+				<target>Zak_ai verwalten</target>
+			</trans-unit>
+			<trans-unit id="generation.alttext">
+				<source>Generate alternative text</source>
+				<target>Alternativtext generieren</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.actionmenu.generateTask">
+				<source>AI Generation Tasks</source>
+				<target>KI-Generierungsaufgaben</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageGenerateTasks.title">
+				<source>Overview of AI generation tasks</source>
+				<target>Übersicht über KI-Generierungsaufgaben</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageGenerateTasks.description">
+				<source>Get an overview of current and past AI generation tasks.</source>
+				<target>Verschaffen Sie sich einen Überblick über aktuelle und vergangene Aufgaben der KI-Generierung.&#xA;&#x9;&#x9;&#x9;&#x9;</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.dashboard.card.manageGenerateTasks.linklabel">
+				<source>AI Generation Tasks</source>
+				<target>KI-Generierungsaufgaben</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.header">
+				<source>AI Generation Tasks</source>
+				<target>KI-Generierungsaufgaben</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.generateTasksLabel">
+				<source>AI Generation Tasks</source>
+				<target>KI-Generierungsaufgaben</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.uid">
+				<source>Uid</source>
+				<target>Uid</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.status">
+				<source>Status</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.capability">
+				<source>Capability</source>
+				<target>Fähigkeit</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.llm">
+				<source>LLM</source>
+				<target>Sprachmodell</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.record">
+				<source>Record</source>
+				<target>Datensatz</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.language">
+				<source>Language</source>
+				<target>Sprache</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.table">
+				<source>Table</source>
+				<target>Tabelle</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.manageGenerateTasks.field">
+				<source>Field</source>
+				<target>Feld</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.actionmenu.zakai">
+				<source>Zak_ai Manager</source>
+				<target>Zak_ai Manager</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakAiManager.header">
+				<source>Zak_ai Manager</source>
+				<target>Zak_ai Manager</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step1.description">
+				<source>Create a secret first and set it in the environment variable &lt;strong&gt;%s&lt;/strong&gt;.</source>
+				<target>Secret erzeugen und Umgebungsvariable &lt;strong&gt;%s&lt;/strong&gt; setzen</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step1.action">
+				<source>Create Secret</source>
+				<target>Secret erzeugen</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step1.done">
+				<source>Secret found in environment variable &lt;strong&gt;%s&lt;/strong&gt;.</source>
+				<target>Secrent in Umgebungsvariable &lt;strong&gt;%s&lt;/strong&gt;  gefunden.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step2.description">
+				<source>Request an API key by E-Mail.</source>
+				<target>Api Key per E-Mail anfragen.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step2.action">
+				<source>Request API Key</source>
+				<target>API Key anfragen</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step2.done">
+				<source>API Key requested</source>
+				<target>API Key angefordert.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step3.description">
+				<source>Place the API key you received by mail in the environment variable &lt;strong&gt;%s&lt;/strong&gt;.</source>
+				<target>Erhaltenen API Key in Umgebungsvariable &lt;strong&gt;%s&lt;/strong&gt; setzen.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step3.done">
+				<source>API Key found in environment variable &lt;strong&gt;%s&lt;/strong&gt; .</source>
+				<target>API-Key in Umgebungsvariable &lt;strong&gt;%s&lt;/strong&gt;  gefunden</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step1.requested">
+				<source>Set this environment variable: &lt;strong&gt;%s&lt;/strong&gt; = &lt;strong&gt;%s&lt;/strong&gt;.</source>
+				<target>Setzen sie diese Umgebungsvariable: &lt;strong&gt;%s&lt;/strong&gt; = &lt;strong&gt;%s&lt;/strong&gt; .</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step2.requested">
+				<source>API Key sent to %s.</source>
+				<target>API Key gesendet an %s.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.secret.warning">
+				<source>Copy this Value! It will not appear again.</source>
+				<target>Kopieren Sie diesen Wert! Er wird nicht nochmal angezeigt.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step3.requested">
+				<source>API Key found in environment variable &lt;strong&gt;%s&lt;/strong&gt;.</source>
+				<target>API-Key in Umgebungsvariable &lt;strong&gt;%s&lt;/strong&gt; gefunden.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step3.action">
+				<source>Activate API Key</source>
+				<target>API Key aktivieren</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.step3.finalcheck">
+				<source>Variable set. Continue.</source>
+				<target>Ok, hab ich gemacht. Weiter.</target>
+			</trans-unit>
+			<trans-unit id="tx_ai3.module.zakai_setup.credits.remaining">
+				<source>%s credits remaining</source>
+				<target>Verbleibende Credits: %s</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

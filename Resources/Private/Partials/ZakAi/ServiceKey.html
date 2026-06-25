@@ -1,0 +1,80 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+{namespace be=TYPO3\CMS\Backend\ViewHelpers}
+
+<f:if condition="{envCheck.serviceKey} == 'MISSING'">
+    <f:if condition="{envCheck.registrationstatus} == Requested">
+        <f:then>
+            <div class="alert alert-warning w-100">
+                <p>
+                <div class="d-flex align-items-center justify-content-start gap-3">
+                    <core:icon identifier="actions-check" size="medium"/>
+                    <f:format.raw>{f:translate(key: 'tx_ai3.module.zakai_setup.step2.requested', extensionName: 'ai3_core', arguments: {0:registration.email})}</f:format.raw>
+                </div>
+                </p>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="card w-100">
+                <div class="card-body">
+                    <p>
+                        {f:translate(key: 'tx_ai3.module.zakai_setup.step2.description', extensionName: 'ai3_core')}
+                    </p>
+                    <form action="{f:be.uri(route: 'ai3_zakai_request_apikey')}" enctype="multipart/form-data" method="POST">
+                    <div class="d-flex align-items-center justify-content-start gap-3">
+                            <input class="form-control" id="secretValueFormEl" name="secret"  type="text" value="">
+                            <input class="form-control" id="email" name="email" placeholder="Email" required type="email" autocomplete="off" value="user@example.com">
+                            <button class="btn btn-secondary" id="generateSecretBtn" type="submit">
+                                {f:translate(key: 'tx_ai3.module.zakai_setup.step2.action', extensionName: 'ai3_core')}
+                            </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </f:else>
+    </f:if>
+    <div class="card w-100">
+        <div class="card-body">
+            <p>
+                <f:format.raw>{f:translate(key: 'tx_ai3.module.zakai_setup.step3.description', extensionName: 'ai3_core', arguments: {0:zakaiconfigurationresolution.serviceKeyRef})}</f:format.raw>
+            </p>
+            <form action="{f:be.uri(route: 'ai3_zakai_final_check')}" method="POST">
+                <div class="d-flex align-items-center justify-content-start gap-3">
+                    <button class="btn btn-secondary"  type="submit">
+                        {f:translate(key: 'tx_ai3.module.zakai_setup.step3.finalcheck', extensionName: 'ai3_core', arguments: {0:zakaiconfigurationresolution.serviceKeyRef})}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</f:if>
+
+<f:if condition="{envCheck.serviceKey} == 'OK'">
+    <f:if condition="{envCheck.registrationstatus} == Requested">
+        <f:then>
+            <div class="alert alert-warning w-100">
+                <p>
+                    <f:format.raw>{f:translate(key: 'tx_ai3.module.zakai_setup.step3.requested', extensionName: 'ai3_core', arguments: {0:zakaiconfigurationresolution.serviceKeyRef})}</f:format.raw>
+                </p>
+                <form action="{f:be.uri(route: 'ai3_zakai_confirm_apikey')}" enctype="multipart/form-data" method="POST">
+                    <div class="d-flex align-items-center justify-content-start gap-3">
+                        <button class="btn btn-secondary" type="submit">
+                            {f:translate(key: 'tx_ai3.module.zakai_setup.step3.action', extensionName: 'ai3_core')}
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </f:then>
+        <f:else>
+            <div class="alert alert-success w-100">
+                <p>
+                    <div class="d-flex align-items-center justify-content-start gap-3">
+                        <core:icon identifier="actions-check" size="medium"/>
+                        <f:format.raw>{f:translate(key: 'tx_ai3.module.zakai_setup.step3.done', extensionName: 'ai3_core', arguments: {0:zakaiconfigurationresolution.serviceKeyRef})}</f:format.raw>
+                    </div>
+                </p>
+            </div>
+        </f:else>
+    </f:if>
+</f:if>
