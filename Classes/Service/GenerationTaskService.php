@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Wegewerk\Ai3Core\Service;
 
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
@@ -124,7 +125,7 @@ final class GenerationTaskService implements SingletonInterface
 
     public function processTask(GenerationTask $task): void
     {
-        //        $task->markProcessing();
+        $task->markProcessing();
         $this->generationTaskRepository->update($task);
         $this->persistenceManager->persistAll();
 
@@ -140,19 +141,30 @@ final class GenerationTaskService implements SingletonInterface
 
         $result = null;
 
-        $capability = $this->capabilityRegistry->getCapability($task->getCapability());
-        if ($capability !== null) {
-            $result = $capability->endpoint->generate($task->getImage(), $task->getPrompt(), $task->getGenerateLanguage());
+        try {
+            $capability = $this->capabilityRegistry->getCapability($task->getCapability());
+            if ($capability !== null) {
+                $result = $capability->endpoint->generate($task->getImage(), $task->getPrompt(), $task->getGenerateLanguage());
+            }
+            if ($result !== null) {
+                $task->setResult($result);
+                $task->markDone();
+                $task->setGeneratedtimestamp(time());
+            }
+
+        } catch (\JsonException $e) {
+            $task->markPending();
+            $this->logger->error('JSON Dekodierungsfehler: ' . $e->getMessage());
+            throw $e;
+        } catch (ClientExceptionInterface $e) {
+            $task->fail($e->getMessage());
+            $this->logger->error('Client Exception: ' . $e->getMessage());
+            throw $e;
+        } finally {
+            $this->generationTaskRepository->update($task);
+            $this->persistenceManager->persistAll();
         }
 
-        if ($result !== null) {
-            $task->setResult($result);
-            $task->markDone();
-            $task->setGeneratedtimestamp(time());
-        }
-
-        $this->generationTaskRepository->update($task);
-        $this->persistenceManager->persistAll();
     }
 
 }
