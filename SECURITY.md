@@ -11,5 +11,5 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-If you have found a security vulnerability please report to technik@wegewerk.com
+If you have found a security vulnerability please report to technik@wegewerk.com.
 We reward initial vulnerability reports, if accepted, with a small bounty in relation to code length and potential damage. 
