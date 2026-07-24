@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" original="" datatype="plaintext" date="2026-07-24T15:26:06+02:00">
+		<body>
+			<trans-unit id="tab.ai3">
+				<source>Ai3 Source Data</source>
+				<target>Ai3 Daten</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_ai3_raw">
+				<source>Raw AI answer</source>
+				<target>KI Rohdaten</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_ai3_source">
+				<source>AI source text</source>
+				<target>KI-Quelltext</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_ai3_type">
+				<source>AI content type</source>
+				<target>KI-Inhaltstyp</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
