@@ -43,8 +43,6 @@
             "typo3/class-alias-loader": true
         },
         "bin-dir": ".Build/bin",
-        "vendor-dir": ".Build/vendor",
-        "platform": {
-        }
+        "vendor-dir": ".Build/vendor"
     }
 }
