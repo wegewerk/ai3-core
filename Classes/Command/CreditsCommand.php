@@ -6,12 +6,14 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use TYPO3\CMS\Core\Attribute\AsNonSchedulableCommand;
 use Wegewerk\Ai3Core\Api\ZakAiAccount;
 
 #[AsCommand(
     name: 'ai3_core:credits',
     description: 'Query Credits Endpoint',
 )]
+#[AsNonSchedulableCommand]
 class CreditsCommand extends Command
 {
     public function __construct(private readonly ZakAiAccount $client)

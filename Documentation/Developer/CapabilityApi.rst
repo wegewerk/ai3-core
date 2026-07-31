@@ -109,8 +109,8 @@ At runtime, all registered capabilities are available via
 TCA integration
 ===============
 
-To expose capability selection in a FormEngine field, use the provided
-``itemsProcFunc``:
+The CapabilityRegistry is used in the ``itemsProcFunc`` of ``capability`` in tx_ai3_domain_model_generation_task
+:
 
 .. code-block:: php
     :caption: TCA column configuration
@@ -126,5 +126,3 @@ To expose capability selection in a FormEngine field, use the provided
         ],
     ],
 
-The items list is populated dynamically from the ``CapabilityRegistry``
-at render time.

@@ -7,7 +7,7 @@ namespace Wegewerk\Ai3Core\Domain\Repository;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-final class GenerationTaskRepository extends Repository
+class GenerationTaskRepository extends Repository
 {
     protected $defaultOrderings = [
         'uid' => QueryInterface::ORDER_DESCENDING,

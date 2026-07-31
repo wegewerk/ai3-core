@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
-
+### change
+- make ai3_core:credits non schedulable
+- add tests for generation task creation
+- add LanguageLabelFile in afterFormengineInitialized Event (needed for credits widget to work in forme engine)
 
 ## [0.9.21] - 2026-07-31
 

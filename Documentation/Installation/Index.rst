@@ -36,3 +36,7 @@ variables. API_KEY and SECRET are obtained in the Backend Module.
 
 The complete registration flow — including requesting and confirming the API
 key — is available through the :ref:`backend module <usage-backend-module>`.
+
+Scheduler Task
+==============
+For the created ``GenerationTasks`` to actually be executed, a scheduler entry for ``ai3_core:process_tasks`` must be created.
