@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
+
+
+## [0.9.22] - 2026-07-31
 ### change
 - make ai3_core:credits non schedulable
 - add tests for generation task creation
