@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ## [Unreleased]
 
 
+## [0.9.23] - 2026-08-07
+
+
 ## [0.9.22] - 2026-07-31
 ### change
 - make ai3_core:credits non schedulable
