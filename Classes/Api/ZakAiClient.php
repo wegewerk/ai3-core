@@ -84,8 +84,10 @@ class ZakAiClient
         }
         $authorization = base64_encode($this->secret . ':' . $this->apiKey);
 
+        $this->logger->debug('Zak_ai API Anfrage: ' . $url);
         try {
             $body = $this->streamFactory->createStream(json_encode($payload, JSON_THROW_ON_ERROR));
+            $this->logger->debug('payload: ' . $body);
             $request = $this->requestFactory->createRequest($method, $url)
                 ->withHeader('Authorization', 'Basic ' . $authorization)
                 ->withHeader('Content-Type', 'application/json')
