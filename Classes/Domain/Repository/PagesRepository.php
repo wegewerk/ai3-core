@@ -6,6 +6,7 @@ namespace Wegewerk\Ai3Core\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\EmptyRestrictionContainer;
 
 class PagesRepository
 {
@@ -20,6 +21,8 @@ class PagesRepository
     public function getPageContent(int $pageId): string {
         // Language der übergebenen Seite holen
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('pages');
+        // Seite soll auch gefunden werden wenn hidden oder sonstwie disabled
+        $queryBuilder->setRestrictions(new EmptyRestrictionContainer());
         $queryBuilder->select('sys_language_uid', 'l10n_parent')
             ->from('pages')
             ->where($queryBuilder->expr()
