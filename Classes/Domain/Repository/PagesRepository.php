@@ -22,7 +22,7 @@ class PagesRepository
         // Language der übergebenen Seite holen
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('pages');
         // Seite soll auch gefunden werden wenn hidden oder sonstwie disabled
-        $queryBuilder->setRestrictions(new EmptyRestrictionContainer());
+        $queryBuilder->resetRestrictions();
         $queryBuilder->select('sys_language_uid', 'l10n_parent')
             ->from('pages')
             ->where($queryBuilder->expr()
