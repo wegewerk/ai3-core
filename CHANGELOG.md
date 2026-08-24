@@ -6,11 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
+### fix
+- ai3-functions (summary,faq) work on hidden pages
 
 
 ## [0.9.25] - 2026-08-24
-### fix
-- ai3-functions (summary,faq) work on hidden pages
+
 
 ## [0.9.24] - 2026-08-21
 
