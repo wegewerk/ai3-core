@@ -1,15 +1,17 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 {namespace core=TYPO3\CMS\Core\ViewHelpers}
 
-<div class="card card-size-large {status}">
+<div class="card card-size-small {status}">
     <div class="card-header">
-        <f:if condition="{icon}">
-            <div class="card-icon">
-                <core:icon identifier="{icon}" size="large"/>
-            </div>
-        </f:if>
-        <div class="card-header-body">
-            <h3 class="card-title">{title}<f:translate key="tx_ai3.module.dashboard.card.{cardname}.title" extensionName="ai3_core"/></h3>
+            <h3 class="card-title">
+                <f:if condition="{icon}">
+                <div class="card-icon">
+                    <core:icon identifier="{icon}" size="large"/>
+                </div>
+            </f:if>
+                 {title}<f:translate key="tx_ai3.module.dashboard.card.{cardname}.title" extensionName="ai3_core"/></h3>
+    </div>
+    <div class="card-body">
             <f:variable name="subtitle" value="{subtitle}{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.subtitle', extensionName: 'ai3_core')}"/>
             <f:if condition="{subtitle}">
                 <span class="card-subtitle">
@@ -24,14 +26,15 @@
                     </p>
                 </div>
             </f:if>
-            <br>
+    </div>
+    <div class="card-footer">
             <f:if condition="{status} == 'active'">
                 <f:then>
                     <f:variable name="routeLink">{f:be.uri(route: route)}</f:variable>
                     <f:if condition="{params}">
                         <f:variable name="routeLink">{f:be.uri(route: route, parameters: params)}</f:variable>
                     </f:if>
-                    <a href="{routeLink}" class="btn btn-secondary" title="{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.linklabel', extensionName: 'ai3_core')}">
+                    <a href="{routeLink}" class="btn btn-default" title="{f:translate(key: 'tx_ai3.module.dashboard.card.{cardname}.linklabel', extensionName: 'ai3_core')}">
                         <f:translate key="tx_ai3.module.dashboard.card.{cardname}.linklabel" extensionName="ai3_core"/>
                     </a>
                 </f:then>
@@ -41,7 +44,6 @@
                     </span>
                 </f:else>
             </f:if>
-        </div>
     </div>
 </div>
 </html>

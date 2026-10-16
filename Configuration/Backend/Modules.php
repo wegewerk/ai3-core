@@ -4,8 +4,8 @@ use Wegewerk\Ai3Core\Controller\Ai3Controller;
 
 return [
     'web_ai3' => [
-        'parent' => 'web',
-        'position' => ['after' => 'web_info'],
+        'parent' => 'tools',
+        'position' => ['after' => 'styleguide'],
         'access' => 'user',
         'workspaces' => 'live',
         'path' => '/module/page/ai3',

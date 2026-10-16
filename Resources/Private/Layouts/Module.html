@@ -22,7 +22,9 @@
         </f:if>
         <f:flashMessages queueIdentifier="{flashMessageQueueIdentifier}" />
 
-        <f:render section="Content" arguments="{_all}" optional="true" />
+        <div class="module-body-container t3js-module-body-container">
+            <f:render section="Content" arguments="{_all}" optional="true" />
+        </div>
 
     </div>
     <f:if condition="{formTag}">
@@ -35,3 +37,5 @@
 <f:render section="After" arguments="{_all}" optional="true" />
 
 </html>
+
+

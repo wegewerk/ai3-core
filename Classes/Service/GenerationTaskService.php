@@ -144,7 +144,11 @@ final class GenerationTaskService implements SingletonInterface
         try {
             $capability = $this->capabilityRegistry->getCapability($task->getCapability());
             if ($capability !== null) {
-                $result = $capability->endpoint->generate($task->getImage(), $task->getPrompt(), $task->getGenerateLanguage());
+                $result = $capability->endpoint->generate([
+                    'image' => $task->getImage(),
+                    'caption'      => $task->getPrompt(),
+                    'language'  => $task->getGenerateLanguage(),
+                ]);
             }
             if ($result !== null) {
                 $task->setResult($result);

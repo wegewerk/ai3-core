@@ -27,6 +27,7 @@ class Ai3Api {
                     const costs = data.credit_costs || {};
                     this._writeCreditCostsCache(costs, ttl);
                     this._creditCostsInflight = null;
+                    console.log(costs);
                     return costs;
                 })
                 .catch(error => {

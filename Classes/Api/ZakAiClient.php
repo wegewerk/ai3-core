@@ -109,7 +109,8 @@ class ZakAiClient
         $this->logger->debug('Zak_ai API Antwort: ' . $contents);
         $status = $response->getStatusCode();
         if ($status < 200 || $status >= 300) {
-            throw new \RuntimeException(sprintf('API error %d: %s', $status, $response->getReasonPhrase()));
+            $responseDetails = json_decode($contents);
+            throw new \RuntimeException(sprintf('API error %d: %s %s', $status, $response->getReasonPhrase(), $responseDetails->message));
         }
         return $decoded;
     }

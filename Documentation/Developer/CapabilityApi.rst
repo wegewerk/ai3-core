@@ -23,15 +23,51 @@ Every capability must implement
 
     interface ZakAiEndpointInterface
     {
-        public function generate(
-            string $imagePath,
-            string $description,
-            string $language,
-        ): string;
+        public function generate(array $options = []): string;
     }
 
-The ``generate()`` method receives the image path (may be empty), a
-text prompt, and a language code. It must return the generated text.
+The ``generate()`` method receives an associative array of options (such
+as ``text``, ``image``, ``language``, etc.) and returns the generated
+string.
+
+.. _developer-capability-api-abstract-endpoint:
+
+AbstractZakAiEndpoint
+=====================
+
+For most capabilities, extending
+:php:`Wegewerk\Ai3Core\Api\AbstractZakAiEndpoint` is the recommended way
+to implement endpoints. It handles required parameter validation,
+building the API request payload, sending the POST request via
+``ZakAiClient``, and extracting the response key.
+
+Subclasses declare their configuration via protected properties:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 30 70
+
+    * - Property
+      - Description
+    * - ``string $endpoint``
+      - The API path for the POST request (e.g. ``bulletpoints``, ``faq``, ``alttexts``).
+    * - ``string $responseKey``
+      - The JSON key to extract from the API response.
+    * - ``array $requiredOptions``
+      - List of required option keys (e.g. ``['text']`` or ``['image']``).
+    * - ``array $optionalOptions``
+      - List of optional option keys passed through to the payload if present.
+
+Payload construction and hooks:
+
+- **Validation:** ``validateRequiredOptions(array $options)`` verifies that
+  all keys in ``$requiredOptions`` are present and non-empty.
+- **Payload building:** ``buildPayload(array $options)`` populates the
+  payload directly with all required and present optional option keys.
+- **Preparation hook:** ``preparePayload(array $payload, array $options): array``
+  allows custom manipulation before sending (e.g. image resizing and base64 encoding).
+- **Result extraction:** ``extractResult(array $response): string`` extracts
+  the ``$responseKey`` value (converting arrays to JSON if needed).
 
 .. _developer-capability-api-register:
 
@@ -57,18 +93,14 @@ automatically:
 .. code-block:: php
     :caption: Classes/Endpoint/SummaryEndpoint.php
 
-    use Wegewerk\Ai3Core\Api\ZakAiEndpointInterface;
+    use Wegewerk\Ai3Core\Api\AbstractZakAiEndpoint;
 
-    final class SummaryEndpoint implements ZakAiEndpointInterface
+    final class SummaryEndpoint extends AbstractZakAiEndpoint
     {
-        public function generate(
-            string $imagePath,
-            string $description,
-            string $language,
-        ): string {
-            // Call Zak_ai provider here.
-            return 'Generated summary …';
-        }
+        protected string $endpoint = 'bulletpoints';
+        protected string $responseKey = 'bulletpoints';
+        protected array $requiredOptions = ['text'];
+        protected array $optionalOptions = ['language'];
     }
 
 .. _developer-capability-registry:
@@ -100,7 +132,10 @@ At runtime, all registered capabilities are available via
                     'Unknown capability: ' . $capabilityKey,
                 );
             }
-            return $capability->endpoint->generate('', 'Hello', 'en');
+            return $capability->endpoint->generate([
+                'text' => 'Hello',
+                'language' => 'en',
+            ]);
         }
     }
 

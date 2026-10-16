@@ -29,6 +29,7 @@ class Ai3Controller extends AbstractBackendController
     public function dashboardAction(): ResponseInterface
     {
 
+        $this->view->getDocHeaderComponent()->disable();
         $this->view->assign('pid', $this->request->getQueryParams()['id'] ?? $this->request->getAttribute('site')->getRootPageId());
         return $this->view->renderResponse('Ai3/Dashboard');
     }

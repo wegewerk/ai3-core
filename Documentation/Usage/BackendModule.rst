@@ -44,6 +44,15 @@ The dashboard looks like this when the registration is complete.
 
 .. figure:: ./Zak_ai_dashboard.png
 
+Restart the Onboarding process
+========================
+The progress of the onboarding process is saved in the TYPO3 Registry (sys_registry) table.
+If the API key has not been received, this must be reset:
+
+delete from sys_registry where entry_namespace='ai3
+
+Then delete the env-var ZAKAI_SECRET and the process can start again from the beginning.
+
 .. _usage-generatetask-view:
 
 Generation task overview

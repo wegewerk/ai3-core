@@ -43,7 +43,7 @@ endpoint.
 
 1. Look up the capability identified by ``task.capability`` in the
    :ref:`CapabilityRegistry <developer-capability-registry>`.
-2. Call ``capability->endpoint->generate(image, prompt, language)``.
+2. Call ``capability->endpoint->generate(['image' => image, 'caption' => prompt, 'language' => language])``.
 3. If a result is returned, set ``task.result``, mark the task as
    *Done*, and store ``task.generated_timestamp``.
 4. Persist all changes.

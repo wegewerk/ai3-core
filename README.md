@@ -45,8 +45,22 @@ composer require wegewerk/ai3_core
 
 ## Extending with a custom capability
 
-Implement `ZakAiEndpointInterface` and tag your service in
+Extend `AbstractZakAiEndpoint` (or implement `ZakAiEndpointInterface`) and tag your service in
 `Configuration/Services.yaml`:
+
+```php
+namespace MyVendor\MyExt\Endpoint;
+
+use Wegewerk\Ai3Core\Api\AbstractZakAiEndpoint;
+
+final class MyEndpoint extends AbstractZakAiEndpoint
+{
+    protected string $endpoint = 'my_endpoint';
+    protected string $responseKey = 'result';
+    protected array $requiredOptions = ['text'];
+    protected array $optionalOptions = ['language'];
+}
+```
 
 ```yaml
 MyVendor\MyExt\Endpoint\MyEndpoint:
