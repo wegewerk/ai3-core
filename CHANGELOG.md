@@ -6,13 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
-
+### documentation
+- add hint to scheduler configuration in Backend Module section
 
 ## [0.9.27] - 2026-10-19
-
-
-## [0.9.27] - 2026-10-16
-
 
 ## [0.9.26] - 2026-08-24
 ### fix

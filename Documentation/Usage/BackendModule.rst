@@ -49,7 +49,7 @@ Restart the Onboarding process
 The progress of the onboarding process is saved in the TYPO3 Registry (sys_registry) table.
 If the API key has not been received, this must be reset:
 
-delete from sys_registry where entry_namespace='ai3
+delete from sys_registry where entry_namespace='ai3'
 
 Then delete the env-var ZAKAI_SECRET and the process can start again from the beginning.
 
@@ -67,3 +67,8 @@ This view is intended for developers to see what the queue status looks like
 See :ref:`developer-generation-task` for the full field reference.
 
 .. figure:: ./Zak_ai_queue.png
+
+For these  ``GenerationTasks`` to actually be executed, a scheduler entry for ``ai3_core:process_tasks`` must be created.
+
+.. figure:: ./Zak_ai_scheduler.png
+
