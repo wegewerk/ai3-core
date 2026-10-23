@@ -63,6 +63,18 @@ final class GenerationTaskService implements SingletonInterface
 
         return false;
     }
+    public function isTaskPending(int $uid): bool
+    {
+
+        /** @var GenerationTask $task */
+        $task = $this->generationTaskRepository->findOneBy([ 'record_uid' => $uid ]);
+
+        if ($task) {
+            return $task->getStatus() === Status::pending;
+        }
+
+        return false;
+    }
 
     public function isGenerated(int $uid, string $currentText): bool
     {
@@ -145,7 +157,7 @@ final class GenerationTaskService implements SingletonInterface
             $capability = $this->capabilityRegistry->getCapability($task->getCapability());
             if ($capability !== null) {
                 $result = $capability->endpoint->generate([
-                    'imagePath' => $task->getImage(),
+                    'image' => $task->getImage(),
                     'caption'      => $task->getPrompt(),
                     'language'  => $task->getGenerateLanguage(),
                 ]);
